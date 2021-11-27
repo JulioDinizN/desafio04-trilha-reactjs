@@ -64,12 +64,12 @@ export default function Post({ post }: PostProps) {
   return (
     <>
       <Head>
-        <title>{post.data.title} | spacetraveling</title>
+        <title>{post.data.title} | desafio04-React</title>
       </Head>
 
       <Header />
 
-      <img src="/teste.png" alt="banner" className={styles.banner} />
+      <img src="/Banner.png" alt="banner" className={styles.banner} />
       <main className={commonStyles.container}>
         <article className={styles.post}>
           <h1>{post.data.title}</h1>
@@ -130,7 +130,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async context => {
   const prismic = getPrismicClient();
   const { slug } = context.params;
-  const response = await prismic.getByUID('post', String(slug), {});
+  const response = await prismic.getByUID('posts', String(slug), {});
 
   const post = {
     uid: response.uid,
